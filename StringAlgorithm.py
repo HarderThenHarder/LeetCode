@@ -36,3 +36,23 @@ class StringAlgorithm:
                     res = res * 10
                     x = x // 10
         return res
+
+    """Given a string, find the first non-repeating character in it and return it's index. If it doesn't exist, return -1."""
+    @staticmethod
+    def first_uniq_char(s):
+        """
+        :type s: str
+        :rtype: int
+        """
+        reduce = {}
+        for i in range(len(s)):
+            if s[i] not in reduce:
+                reduce[s[i]] = 1
+            else:
+                reduce[s[i]] += 1
+
+        print(reduce)
+        for i in range(len(s)):
+            if reduce[s[i]] == 1:
+                return i
+        return -1

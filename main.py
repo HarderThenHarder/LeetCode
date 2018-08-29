@@ -2,9 +2,20 @@ from ArrayAlgorithm import ArrayAlgorithm
 
 
 def main():
-    nums = [1, 2, 2, 3, 3]
-    res = ArrayAlgorithm.reduce_duplicate(nums)
-    print(res)
+    def firstUniqChar(s):
+        reduce = {}
+        for i in range(len(s)):
+            if s[i] not in reduce:
+                reduce[s[i]] = 1
+            else:
+                reduce[s[i]] += 1
+
+        for index, element in enumerate(reduce):
+            if reduce[element] == 1:
+                return index
+        return -1
+
+    res = firstUniqChar("aababcas")
 
 
 if __name__ == '__main__':
