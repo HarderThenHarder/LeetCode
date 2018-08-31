@@ -56,3 +56,31 @@ class StringAlgorithm:
             if reduce[s[i]] == 1:
                 return i
         return -1
+
+    """Given two strings s and t, write a function to determine if t is an anagram of s. Ex: 'anam' -> 'mana' = True"""
+    @staticmethod
+    def is_anagram(s, t):
+        """
+        :type s: str
+        :type t: str
+        :rtype: bool
+        """
+        if len(s) != len(t):
+            return False
+
+        ref = 'abcdefghijklmnopqrstuvwxyz'
+        for l in ref:
+            if s.count(l) != t.count(l):
+                return False
+
+        return True
+
+    """Confirm Palindrome String. Ex: level -> Ture"""
+    @staticmethod
+    def is_palindrome(s):
+        """
+        :type s: str
+        :rtype: bool
+        """
+        s = list(filter(str.isalnum, s.lower()))
+        return True if s == s[::-1] else False
